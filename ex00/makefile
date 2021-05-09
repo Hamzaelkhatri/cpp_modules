@@ -14,7 +14,7 @@ $(NAME) :  $(OBJ)
 	@$(COMP) $(H_FLAG) $(OBJ) -o $@
 
 $(OBJ_PATH)/%.o: %.cpp 
-	@mkdir $(OBJ_PATH) 
+	@mkdir -p $(OBJ_PATH) 
 	@$(COMP) $(H_FLAG) $(FLAGS) -g -o $@ -c $<
 
 clean:
