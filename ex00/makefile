@@ -1,6 +1,6 @@
 NAME= megaphone
 OBJ_PATH=obj
-COMP= g++
+COMP= clang++
 SRC= megaphone.cpp
 
 OBJ_NAME= $(SRC:.cpp=.o)
