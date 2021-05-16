@@ -6,8 +6,8 @@ std::string m_substr(std::string str)
     std::string s = str;
     if (str.length() >= 10)
     {
-        s= str.substr(0,9);
-        // s+=".";
+        s = str.substr(0, 9);
+        s += ".";
     }
     return (s);
 }
@@ -15,19 +15,50 @@ std::string m_substr(std::string str)
 void add(phone_book *list, phone_book nv, int i)
 {
     if (i < 8)
+    {
+        nv.set_index(i);
         list[i] = nv;
+    }
     else
         std::cout << "max contact to add is 8" << std::endl;
 }
 
 std::string phone_book::strings()
 {
-    return (std::to_string(index) + "|" + m_substr(first_name) + "|" + m_substr(last_name) + "|" + m_substr(nickname));
+    return (std::to_string(index) + "|" + m_substr(get_firstName()) + "|" + m_substr(get_lastName()) + "|" + m_substr(get_nickname()));
 }
 
 std::string phone_book::details()
 {
-    return ("index : " + std::to_string(index) + "\n first name : " + first_name + "\n last name :" + last_name + "\n nickname : " + nickname + "\n login : " + login + "\n adrs_postal :" + adrs_postal + "\n email addresses : " + email_adrs + "\n phone numbers :" + num_phone + "\ndns : " + dns + "\n favorite_meal :" + favorite_meal + "\n underwear_color : " + underwear_color + "\n darkest_secret : " + darkest_secret);
+    return ("index : " + std::to_string(index) + "\n first name : " + get_firstName() +
+            "\n last name :" + get_lastName() + "\n nickname : " + get_nickname() +
+            "\n login : " + get_login() + "\n adrs_postal :" + get_adsPostal() +
+            "\n email addresses : " + get_email() + "\n phone numbers :" +
+            get_phone() + "\ndns : " + get_dns() + "\n favorite_meal :" +
+            get_favMeal() + "\n underwear_color : " + get_underwear() +
+            "\n darkest_secret : " + get_secret());
+}
+
+void show_detaills(phone_book *list, std::string str, int index)
+{
+    int i;
+
+    i = 0;
+    if (str[0] >= '0' && str[0] < '9')
+        i = std::stoi(str);
+    while (1)
+    {
+        if (i <= index)
+        {
+            std::cout << list[i].details() << std::endl;
+            break;
+        }
+        else
+        {
+            std::cout << "index not found" << std::endl;
+            continue;
+        }
+    }
 }
 
 void show_contact(phone_book *list, int i)
@@ -60,7 +91,7 @@ void phone_book::add_contact(phone_book *list, int i)
     std::cout << " enter date birthday : ";
     getline(std::cin, nv.dns);
     std::cout << " enter favorite meal : ";
-    getline(std::cin, nv.first_name);
+    getline(std::cin, nv.favorite_meal);
     std::cout << " enter underwear color : ";
     getline(std::cin, nv.underwear_color);
     std::cout << " enter darkest secret : ";
@@ -68,23 +99,33 @@ void phone_book::add_contact(phone_book *list, int i)
     add(list, nv, i);
 }
 
-int main(int ac, char **ag)
+int main(void)
 {
-    std::string str;
-    int i = 0;
     phone_book *phone = new phone_book[8];
+    std::string str;
+    std::string index;
+    int i = 0;
 
     do
     {
         getline(std::cin, str);
         if (str == "ADD")
         {
-            phone->add_contact(phone, i);
-            i++;
+            if (i < 8)
+            {
+                phone->add_contact(phone, i);
+                i++;
+            }
+            else
+            {
+                std::cout << "max contact to add is 8" << std::endl;
+            }
         }
         else if (str == "SEARCH")
         {
             show_contact(phone, i);
+            getline(std::cin, index);
+            show_detaills(phone, index, i);
         }
         else if (str != "" && str != "EXIT")
         {

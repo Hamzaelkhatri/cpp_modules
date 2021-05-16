@@ -1,6 +1,6 @@
 NAME= megaphone
 OBJ_PATH=obj
-COMP= clang++
+COMP= clang++ -Wall -Wextra -Werror
 SRC= megaphone.cpp
 
 OBJ_NAME= $(SRC:.cpp=.o)
@@ -11,11 +11,11 @@ all:			$(NAME)
 
 $(NAME) :  $(OBJ)
 	@rm -rf $(NAME)
-	@$(COMP) $(H_FLAG) $(OBJ) -o $@
+	@$(COMP) $(OBJ) -o $@
 
 $(OBJ_PATH)/%.o: %.cpp 
 	@mkdir -p $(OBJ_PATH) 
-	@$(COMP) $(H_FLAG) $(FLAGS) -g -o $@ -c $<
+	@$(COMP) -g -o $@ -c $<
 
 clean:
 	@rm -rf $(OBJ_PATH)
