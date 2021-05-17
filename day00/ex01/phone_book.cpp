@@ -1,4 +1,3 @@
-#include <iostream>
 #include "phone_book.hpp"
 
 std::string m_substr(std::string str)
@@ -25,7 +24,8 @@ void add(phone_book *list, phone_book nv, int i)
 
 std::string phone_book::strings()
 {
-    return (std::to_string(index) + "|" + m_substr(get_firstName()) + "|" + m_substr(get_lastName()) + "|" + m_substr(get_nickname()));
+    std::cout << std::to_string(index) + "|" << std::setw(10) << m_substr(get_firstName()) + "|" << std::setw(10) << m_substr(get_lastName()) + "|" << std::setw(10) << m_substr(get_nickname());
+    return "";
 }
 
 std::string phone_book::details()
