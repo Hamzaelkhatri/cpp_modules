@@ -105,7 +105,6 @@ int main(void)
     std::string str;
     std::string index;
     int i = 0;
-
     do
     {
         getline(std::cin, str);
@@ -132,5 +131,6 @@ int main(void)
             std::cout << "arguments not found" << std::endl;
         }
     } while (str != "EXIT");
+    delete[] phone;
     return (0);
 }
