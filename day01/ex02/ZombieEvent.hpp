@@ -9,11 +9,11 @@ private:
     Zombie zd;
 
 public:
-    void setZombieType(std::string type);
     ZombieEvent(/* args */);
     ~ZombieEvent();
+    void setZombieType(std::string type);
 };
 
 Zombie *newZombie(std::string name);
-
+void randomChump();
 #endif
