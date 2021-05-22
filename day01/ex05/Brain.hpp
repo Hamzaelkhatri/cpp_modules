@@ -2,11 +2,12 @@
 #define BRAIN_H
 #include <iostream>
 #include <iomanip>
+#include <sstream>
+
 
 class Brain
 {
 private:
-    int cells;
 
 public:
     Brain();

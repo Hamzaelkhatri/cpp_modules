@@ -9,7 +9,7 @@ void ponyOnTheHeap()
 
 void ponyOnTheStack()
 {
-    Pony pony("Poly from stack");
+    Pony pony("pony from stack");
     std::cout << pony.get_name() << std::endl;
 }
 

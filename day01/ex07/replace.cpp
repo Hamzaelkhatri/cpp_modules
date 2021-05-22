@@ -3,10 +3,9 @@
 #include <fstream>
 #include "file.hpp"
 
-void savechanges(std::string str)
+void savechanges(std::string str,file *f)
 {
-    std::string input;
-    std::ofstream out("FILENAME.replace");
+    std::ofstream out(f->getFile1()+".replace");
     out << str;
     out.close();
 }
@@ -18,7 +17,28 @@ void find_keyword(file *f)
     std::string tmp;
     std::string str;
     str = "";
-    fs.open(f->getFile1(), std::ios::in);
+    try
+    {
+        fs.open(f->getFile1(), std::ios::in);
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    if (!fs.is_open())
+    {
+        try
+        {
+            throw file_exception();
+        }
+        catch (const std::exception &e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+
+        exit(0);
+    }
     while (!fs.eof())
     {
         std::getline(fs, tmp);
@@ -32,14 +52,14 @@ void find_keyword(file *f)
     }
     fs.close();
     if (i)
-        savechanges(str);
+        savechanges(str,f);
     else
     {
         std::cout << "keyword not found" << std::endl;
     }
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
     file *f = new file();
     f->keep_info();

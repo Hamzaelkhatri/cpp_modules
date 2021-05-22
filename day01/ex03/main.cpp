@@ -1,10 +1,10 @@
 #include "Zombie.hpp"
 #include "ZombieHorde.hpp"
 
-int main(int argc, char const *argv[])
+int main()
 {
     ZombieHorde *zd = new ZombieHorde(4);
     zd->announce();
-    zd->~ZombieHorde();
+    delete zd;
     return 0;
 }

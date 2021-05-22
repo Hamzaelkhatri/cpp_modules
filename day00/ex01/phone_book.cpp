@@ -24,7 +24,7 @@ void add(phone_book *list, phone_book nv, int i)
 
 std::string phone_book::strings()
 {
-    std::cout << std::to_string(index) + "|" << std::setw(10) << m_substr(get_firstName()) + "|" << std::setw(10) << m_substr(get_lastName()) + "|" << std::setw(10) << m_substr(get_nickname());
+    std::cout << std::setw(10) << std::to_string(index) + "|" << std::setw(10) << m_substr(get_firstName()) + "|" << std::setw(10) << m_substr(get_lastName()) + "|" << std::setw(10) << m_substr(get_nickname());
     return "";
 }
 
@@ -45,18 +45,20 @@ void show_detaills(phone_book *list, std::string str, int index)
 
     i = 0;
     if (str[0] >= '0' && str[0] < '9')
-        i = std::stoi(str);
-    while (1)
     {
-        if (i <= index)
+        i = std::stoi(str);
+        while (1)
         {
-            std::cout << list[i].details() << std::endl;
-            break;
-        }
-        else
-        {
-            std::cout << "index not found" << std::endl;
-            continue;
+            if (i <= index)
+            {
+                std::cout << list[i].details() << std::endl;
+                break;
+            }
+            else
+            {
+                std::cout << "index not found" << std::endl;
+                continue;
+            }
         }
     }
 }
@@ -122,9 +124,12 @@ int main(void)
         }
         else if (str == "SEARCH")
         {
-            show_contact(phone, i);
-            getline(std::cin, index);
-            show_detaills(phone, index, i);
+            if (i > 0)
+            {
+                show_contact(phone, i);
+                getline(std::cin, index);
+                show_detaills(phone, index, i);
+            }
         }
         else if (str != "" && str != "EXIT")
         {

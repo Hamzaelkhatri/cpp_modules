@@ -1,14 +1,14 @@
 #include <iostream>
 
-void memoryLeak()
+void memoryLeak(std::string *panther)
 {
-    std::string *panther = new std::string("String panther");
     std::cout << *panther << std::endl;
-    delete panther;
 }
 
 int main(void)
 {
-    memoryLeak();
+    std::string *panther = new std::string("String panther");
+    memoryLeak(panther);
+    delete panther;
     return 0;
 }
