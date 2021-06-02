@@ -1,15 +1,51 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void)
+ClapTrap::ClapTrap()
 {
 }
 
-ClapTrap::ClapTrap(std::string Name,int Hit_points,
-int Max_hit_points,int Energy_points,int Max_energy_points,
-int Level,int Melee_attack_damage,int Ranged_attack_damage,int Armor_damage_reduction)
+ClapTrap ClapTrap::operator=(const ClapTrap &op)
 {
-    srand(time(0));
-    std::cout << this->Name << "ClapTrap : compiling THE CODE !" << std::endl;
+    this->Name = op.Name;
+    this->Level = op.Level;
+    this->Hit_points = op.Hit_points;
+    this->Max_hit_points = op.Max_hit_points;
+    this->Energy_points = op.Energy_points;
+    this->Max_energy_points = op.Max_energy_points;
+    this->Melee_attack_damage = op.Melee_attack_damage;
+    this->Ranged_attack_damage = op.Ranged_attack_damage;
+    this->Armor_damage_reduction = op.Armor_damage_reduction;
+    return (*this);
+}
+
+ClapTrap::ClapTrap(const ClapTrap &clap)
+{
+    std::cout << this->Name << ": Recompiling ... !" << std::endl;
+    this->Name = clap.Name;
+    this->Level = clap.Level;
+    this->Hit_points = clap.Hit_points;
+    this->Max_hit_points = clap.Max_hit_points;
+    this->Energy_points = clap.Energy_points;
+    this->Max_energy_points = clap.Max_energy_points;
+    this->Melee_attack_damage = clap.Melee_attack_damage;
+    this->Ranged_attack_damage = clap.Ranged_attack_damage;
+    this->Armor_damage_reduction = clap.Armor_damage_reduction;
+}
+
+ClapTrap::ClapTrap(std::string Name, int Hit_points,
+                   int Max_hit_points, int Energy_points, int Max_energy_points,
+                   int Level, int Melee_attack_damage, int Ranged_attack_damage, int Armor_damage_reduction)
+{
+    this->Name = Name;
+    this->Level = Level;
+    this->Hit_points = Hit_points;
+    this->Max_hit_points = Max_hit_points;
+    this->Energy_points = Energy_points;
+    this->Max_energy_points = Max_energy_points;
+    this->Melee_attack_damage = Melee_attack_damage;
+    this->Ranged_attack_damage = Ranged_attack_damage;
+    this->Armor_damage_reduction = Armor_damage_reduction;
+    std::cout << this->Name << ": compiling ... !" << std::endl;
 }
 
 void ClapTrap::rangedAttack(std::string const &target)
@@ -46,4 +82,9 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     std::cout << this->Name << " is repaired for "
               << healed << "!" << std::endl;
+}
+
+ClapTrap::~ClapTrap()
+{
+    std::cout << this->Name << " DIE..." << std::endl;
 }

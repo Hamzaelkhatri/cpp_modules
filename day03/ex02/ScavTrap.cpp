@@ -1,13 +1,23 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string const name) : ClapTrap(name,1,100,100,50,50,20,15,3)
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name, 1, 100, 100, 50, 50, 20, 15, 3)
 {
     std::cout << this->Name << "Builiding..." << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &other) : ClapTrap(other)
+ScavTrap::ScavTrap(ScavTrap const &scav)
 {
     std::cout << this->Name << "Builiding..." << std::endl;
+    this->Name = scav.Name;
+    this->Armor_damage_reduction = scav.Armor_damage_reduction;
+    this->Energy_points = scav.Energy_points;
+    this->Hit_points = scav.Hit_points;
+    this->Level = scav.Level;
+    this->Max_energy_points = scav.Max_energy_points;
+    this->Max_hit_points = scav.Max_hit_points;
+    this->Melee_attack_damage = scav.Melee_attack_damage;
+    this->Name = scav.Name;
+    this->Ranged_attack_damage = scav.Ranged_attack_damage;
 }
 
 ScavTrap::~ScavTrap()
@@ -15,17 +25,17 @@ ScavTrap::~ScavTrap()
     std::cout << this->Name << " DIE..." << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(ScavTrap const &other)
+ScavTrap &ScavTrap::operator=(ScavTrap const &op)
 {
-    this->Name = other.Name;
-    this->Level = other.Level;
-    this->Hit_points = other.Hit_points;
-    this->Max_hit_points = other.Max_hit_points;
-    this->Energy_points = other.Energy_points;
-    this->Max_energy_points = other.Max_energy_points;
-    this->Melee_attack_damage = other.Melee_attack_damage;
-    this->Ranged_attack_damage = other.Ranged_attack_damage;
-    this->Armor_damage_reduction = other.Armor_damage_reduction;
+    this->Name = op.Name;
+    this->Level = op.Level;
+    this->Hit_points = op.Hit_points;
+    this->Max_hit_points = op.Max_hit_points;
+    this->Energy_points = op.Energy_points;
+    this->Max_energy_points = op.Max_energy_points;
+    this->Melee_attack_damage = op.Melee_attack_damage;
+    this->Ranged_attack_damage = op.Ranged_attack_damage;
+    this->Armor_damage_reduction = op.Armor_damage_reduction;
     return (*this);
 }
 

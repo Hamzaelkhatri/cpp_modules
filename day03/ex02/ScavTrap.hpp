@@ -5,11 +5,11 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
 private:
     ScavTrap();
+
 public:
     ScavTrap(std::string const name);
     ScavTrap(ScavTrap const &other);
