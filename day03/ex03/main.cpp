@@ -1,11 +1,13 @@
 #include <iostream>
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "NinjaTrap.hpp"
 
 int main(void)
 {
     FragTrap frag("FR4G");
     ScavTrap scav("CL4P");
+    NinjaTrap Ninja("CL4P");
 
     srand(time(NULL));
     frag.meleeAttack("CL4P-TP");
@@ -28,5 +30,8 @@ int main(void)
     scav.takeDamage(20);
     scav.beRepaired(125);
 
+    Ninja.ninjaShoebox(scav);
+    Ninja.ninjaShoebox(frag);
+    Ninja.ninjaShoebox(Ninja);
     return (0);
 }

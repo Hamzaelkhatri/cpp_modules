@@ -3,6 +3,14 @@
 ScavTrap::ScavTrap(std::string const name) : ClapTrap(name, 1, 100, 100, 50, 50, 20, 15, 3)
 {
     std::cout << this->Name << " Builiding..." << std::endl;
+    this->Level = 1;
+    this->Hit_points = 100;
+    this->Max_hit_points = 100;
+    this->Energy_points = 50;
+    this->Max_energy_points = 50;
+    this->Melee_attack_damage = 20;
+    this->Ranged_attack_damage = 15;
+    this->Armor_damage_reduction = 3;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &scav)

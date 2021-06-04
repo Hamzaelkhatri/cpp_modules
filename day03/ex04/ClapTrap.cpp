@@ -4,6 +4,15 @@ ClapTrap::ClapTrap()
 {
 }
 
+ClapTrap::ClapTrap(std::string Name) : Name(Name)
+{
+}
+
+std::string ClapTrap::getName()
+{
+    return (this->Name);
+}
+
 ClapTrap ClapTrap::operator=(const ClapTrap &op)
 {
     this->Name = op.Name;
