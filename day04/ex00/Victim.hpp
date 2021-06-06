@@ -13,13 +13,13 @@ protected:
 
 public:
     Victim(std::string const &Name);
-    Victim(const Victim &victim);
-    virtual ~Victim();
+    Victim(const Victim &vic);
+    ~Victim();
 
     Victim &operator=(const Victim &op);
 
     std::string const &getName(void) const;
-    virtual void getPolymorphed(void) const;
+    void getPolymorphed(void) const;
 };
 
 std::ostream &operator<<(std::ostream &out, Victim const &sorcerer);
