@@ -1,17 +1,26 @@
-#include <iomanip>
-#include <iostream>
+#include "AMateria.hpp"
 
-class AMateria
+AMateria::AMateria(std::string const &type) : type(type)
 {
-protected:
-    static unsigned int _xp;
+    _xp = 0;
+}
 
-public:
-    AMateria(std::string const &type);
-    // [...]
-    virtual ~AMateria();
-    std::string const &getType() const; //Returns the materia type
-    unsigned int getXP() const;         //Returns the Materia's XP
-    virtual AMateria *clone() const = 0;
-    virtual void use(ICharacter &target);
-};
+AMateria ::~AMateria()
+{
+}
+
+std::string const &AMateria::getType() const
+{
+    return (type);
+}
+
+unsigned int AMateria::getXP() const
+{
+    return (_xp);
+}
+
+virtual void AMateria::use(ICharacter &target)
+{
+    (void)target;
+    xp += 10;
+}
