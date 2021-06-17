@@ -1,12 +1,16 @@
+
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 #include <iomanip>
 #include <iostream>
 #include "ICharacter.hpp"
-
+class ICharacter;
 class AMateria
 {
+
 protected:
-    static unsigned int _xp;
     std::string type;
+    unsigned int _xp;
 
 public:
     AMateria(std::string const &type);
@@ -16,3 +20,5 @@ public:
     virtual AMateria *clone() const = 0;
     virtual void use(ICharacter &target);
 };
+
+#endif

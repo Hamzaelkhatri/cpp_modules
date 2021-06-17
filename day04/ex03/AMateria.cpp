@@ -2,25 +2,26 @@
 
 AMateria::AMateria(std::string const &type) : type(type)
 {
-    _xp = 0;
+    this->_xp = 0;
 }
 
 AMateria ::~AMateria()
 {
 }
 
-std::string const &AMateria::getType() const
+std::string const &AMateria::getType(void) const
 {
     return (type);
 }
 
-unsigned int AMateria::getXP() const
+//unsigned int getXP() const
+unsigned int AMateria::getXP(void) const
 {
-    return (_xp);
+    return (this->_xp);
 }
 
-virtual void AMateria::use(ICharacter &target)
+void AMateria::use(ICharacter &target)
 {
     (void)target;
-    xp += 10;
+    this->_xp += 10;
 }

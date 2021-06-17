@@ -21,7 +21,7 @@ Character::~Character()
 Character &Character::operator=(Character const &character)
 {
     this->name = character.name;
-    this->index = 0;
+    this->index = character.index;
     for (int i = 0; i < character.index; i++)
         this->equip(character.inventory[i]->clone());
     return (*this);
