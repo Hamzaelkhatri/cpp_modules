@@ -33,7 +33,7 @@ std::string const Bureaucrat::getName() const
     return (name);
 }
 
-int const Bureaucrat::getGrade() const
+int  Bureaucrat::getGrade() const
 {
     return (grade);
 }
