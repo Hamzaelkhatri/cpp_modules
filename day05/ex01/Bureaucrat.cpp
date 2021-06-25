@@ -56,6 +56,19 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : name(name), grade(g
         throw GradeTooLowException();
 }
 
+void Bureaucrat::signForm(Form *f)
+{
+    try
+    {
+        f->BeSigned(*this);
+        std::cout << this->name << " sign " << f->getName();
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << this->name << " cannot sign " << f->getName()<< " because " << e.what() << '\n';
+    }
+}
+
 Bureaucrat::~Bureaucrat()
 {
 }
