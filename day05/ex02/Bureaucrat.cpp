@@ -18,6 +18,12 @@ void Bureaucrat::incrGrade()
         grade = newnGrade;
 }
 
+void Bureaucrat::executeForm(Form const &form)
+{
+    form.execute(*this);
+    std::cout << this->getName() << " execute " << form.getName();
+}
+
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "Grade Too High";
@@ -33,7 +39,7 @@ std::string const Bureaucrat::getName() const
     return (name);
 }
 
-int  Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
     return (grade);
 }
@@ -65,16 +71,10 @@ void Bureaucrat::signForm(Form *f)
     }
     catch (const std::exception &e)
     {
-        std::cerr << this->name << " cannot sign " << f->getName()<< " because " << e.what() << '\n';
+        std::cerr << this->name << " cannot sign " << f->getName() << " because " << e.what() << '\n';
     }
 }
 
 Bureaucrat::~Bureaucrat()
 {
 }
-
-/*
-
-        ShrubberyCreationForm.hpp ShrubberyCreationForm.cpp RobotomyRequestForm.hpp RobotomyRequestForm.cpp PresidentialPardonForm.hpp PresidentialPardonForm.cpp
-
-*/

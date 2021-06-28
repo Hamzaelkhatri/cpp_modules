@@ -1,3 +1,6 @@
+#ifndef SHRUBBERYCREATIONFORM_H
+#define SHRUBBERYCREATIONFORM_H
+
 #include <iostream>
 #include <fstream>
 #include "Form.hpp"
@@ -8,35 +11,12 @@ private:
     std::string target;
 
 public:
-    ShrubberyCreationForm(/* args */);
-    ShrubberyCreationForm(std::string &target);
+    ShrubberyCreationForm(std::string target);
     ~ShrubberyCreationForm();
-    void execute(Bureaucrat const &executor);
+    ShrubberyCreationForm(ShrubberyCreationForm const &f);
+    ShrubberyCreationForm &
+    operator=(ShrubberyCreationForm const &f);
+    void action() const;
 };
 
-void ShrubberyCreationForm::execute(Bureaucrat const &executor)
-{
-    std::ofstream MyFile(this->target + "_shrubbery");
-    MyFile << "      /\\      \n";
-    MyFile << "     /\\*\\     \n";
-    MyFile << "    /\\O\\*\\    \n";
-    MyFile << "   /*/\\/\\/\\   \n";
-    MyFile << "  /\\O\\/\\*\\/\\  \n";
-    MyFile << " /\\*\\/\\*\\/\\/\\ \n";
-    MyFile << "/\\O\\/\\/*/\\/O/\\ \n";
-    MyFile << "      ||         \n";
-    MyFile << "      ||         \n";
-    MyFile.close();
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(std::string &target) : Form("shrubbery", 145, 135), target(target)
-{
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(/* args */)
-{
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-}
+#endif

@@ -19,6 +19,7 @@ public:
     std::string const getName() const;
     void incrGrade();
     void decrGrade();
+    void executeForm(Form const &form);
     Bureaucrat &operator=(Bureaucrat const &other);
 
     class GradeTooLowException : public std::exception
@@ -34,7 +35,5 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &chara);
-
-
 
 #endif

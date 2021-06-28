@@ -33,7 +33,7 @@ std::string const Bureaucrat::getName() const
     return (name);
 }
 
-int const Bureaucrat::getGrade() const
+int  Bureaucrat::getGrade() const
 {
     return (grade);
 }
@@ -54,6 +54,19 @@ Bureaucrat::Bureaucrat(std::string const &name, int grade) : name(name), grade(g
         throw GradeTooHighException();
     else if (this->grade > 150)
         throw GradeTooLowException();
+}
+
+void Bureaucrat::signForm(Form *f)
+{
+    try
+    {
+        f->BeSigned(*this);
+        std::cout << this->name << " sign " << f->getName();
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << this->name << " cannot sign " << f->getName()<< " because " << e.what() << '\n';
+    }
 }
 
 Bureaucrat::~Bureaucrat()

@@ -2,19 +2,20 @@
 #define BUREAUCRAT_HPP
 #include <iostream>
 #include <string>
-
+#include "Form.hpp"
+class Form;
 class Bureaucrat
 {
 private:
     std::string const name;
     int grade;
-
     Bureaucrat();
 
 public:
+    void signForm(Form *f);
     Bureaucrat(std::string const &name, int grade);
     virtual ~Bureaucrat();
-    int const getGrade() const;
+    int getGrade() const;
     std::string const getName() const;
     void incrGrade();
     void decrGrade();
@@ -33,5 +34,7 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &chara);
+
+
 
 #endif

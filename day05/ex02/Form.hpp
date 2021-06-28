@@ -14,7 +14,15 @@ private:
 
 public:
     Form(std::string const name, int const grade_sign, int const grade_exec);
+    Form(const Form &f);
+    Form &operator=(const Form &form);
     void BeSigned(Bureaucrat &b);
+
+    class UnsignedFormException : public std::exception
+    {
+        const char *what() const throw();
+    };
+
     class GradeTooHighException : public std::exception
     {
         const char *what() const throw();
@@ -24,8 +32,10 @@ public:
         const char *what() const throw();
     };
     std::string const getName() const;
-    void execute(Bureaucrat const &executor) const;
+    virtual void action() const = 0;
+    void execute(Bureaucrat const &b) const;
     ~Form();
 };
+std::ostream &operator<<(std::ostream &out, Form const &f);
 
 #endif
