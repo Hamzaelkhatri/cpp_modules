@@ -11,8 +11,8 @@ private:
     bool signeds;
     int const grade_sign;
     int const grad_exec;
-
 public:
+    Form();
     Form(std::string const name, int const grade_sign, int const grade_exec);
     Form(const Form &f);
     Form &operator=(const Form &form);
@@ -34,7 +34,7 @@ public:
     std::string const getName() const;
     virtual void action() const = 0;
     void execute(Bureaucrat const &b) const;
-    ~Form();
+    virtual ~Form();
 };
 std::ostream &operator<<(std::ostream &out, Form const &f);
 

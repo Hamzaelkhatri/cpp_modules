@@ -4,8 +4,19 @@ FLAGS = -Wall -Wextra -Werror
 
 target = main.cpp \
 		Bureaucrat.cpp \
-			
+		Form.cpp\
+		  PresidentialPardonForm.cpp\
+		  RobotomyRequestForm.cpp\
+		  ShrubberyCreationForm.cpp\
+
+		
 headers = Bureaucrat.hpp \
+		  Form.hpp \
+		  PresidentialPardonForm.hpp\
+		  RobotomyRequestForm.hpp\
+		  ShrubberyCreationForm.hpp\
+
+
 
 OBJS = $(target:.cpp=.o)
 
