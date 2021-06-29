@@ -21,10 +21,11 @@ int main()
         RobotomyRequestForm r("R1");
         Bureaucrat b("B1", 2);
         Form *f = new ShrubberyCreationForm("F1");
-        f->action();
-        r.action();
-        Form *pres = new PresidentialPardonForm("F2");
-        pres->action();
+        b.executeForm(*f);
+        // f->action();
+        // r.action();
+        // Form *pres = new PresidentialPardonForm("F2");
+        // pres->action();
     }
     catch (std::exception &e)
     {

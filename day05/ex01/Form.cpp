@@ -1,8 +1,20 @@
 #include "Form.hpp"
 
-Form::Form() :  grade_sign(0) , grad_exec(0)
+Form::Form() : grade_sign(0), grad_exec(0)
 {
+}
 
+int const Form::getExec() const
+{
+    return (this->grad_exec);
+}
+int const Form::getSign() const
+{
+    return (this->grade_sign);
+}
+bool Form::get_signed() const
+{
+    return (this->signeds);
 }
 
 std::string const Form::getName() const
@@ -19,11 +31,14 @@ void Form::BeSigned(Bureaucrat &b)
 
 std::ostream &operator<<(std::ostream &out, Form const &f)
 {
-    (void) f;
+    if (f.get_signed())
+        out << "State of form has Signed";
+    else
+        out << "State of form has not signed";
     return out;
 }
 
-Form::Form(std::string const name, int const grade_sign, int const grade_exec) : name(name), grade_sign(grade_sign) , grad_exec(grade_exec)
+Form::Form(std::string const name, int const grade_sign, int const grade_exec) : name(name), grade_sign(grade_sign), grad_exec(grade_exec)
 {
     signeds = false;
     if (grade_sign < 1 || grad_exec < 1)

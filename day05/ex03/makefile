@@ -1,4 +1,4 @@
-NAME = ex00
+NAME = ex03
 
 FLAGS = -Wall -Wextra -Werror 
 
