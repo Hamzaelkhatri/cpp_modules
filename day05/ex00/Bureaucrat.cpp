@@ -9,6 +9,25 @@ void Bureaucrat::decrGrade()
         grade = newnGrade;
 }
 
+Bureaucrat::Bureaucrat(Bureaucrat &b) : name(b.name), grade(b.grade)
+{
+    if (this->grade < 1)
+        throw GradeTooHighException();
+    else if (this->grade > 150)
+        throw GradeTooLowException();
+}
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)
+{
+    if (this != &other)
+        this->grade = other.grade;
+    if (this->grade < 1)
+        throw GradeTooHighException();
+    else if (this->grade > 150)
+        throw GradeTooLowException();
+    return (*this);
+}
+
 void Bureaucrat::incrGrade()
 {
     int newnGrade = grade - 1;
@@ -33,7 +52,7 @@ std::string const Bureaucrat::getName() const
     return (name);
 }
 
-int const Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
     return (grade);
 }
