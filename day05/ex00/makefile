@@ -1,4 +1,4 @@
-NAME = ex00
+MakefileMakefileNAME = ex00
 
 FLAGS = -Wall -Wextra -Werror 
 
