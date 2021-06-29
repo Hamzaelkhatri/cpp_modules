@@ -1,10 +1,5 @@
 #include "Form.hpp"
 
-Form::Form() :  grade_sign(0) , grad_exec(0)
-{
-
-}
-
 std::string const Form::getName() const
 {
     return (this->name);
@@ -19,7 +14,7 @@ void Form::BeSigned(Bureaucrat &b)
 
 std::ostream &operator<<(std::ostream &out, Form const &f)
 {
-    (void) f;
+    (void)f;
     return out;
 }
 
@@ -33,7 +28,7 @@ Form &Form::operator=(Form const &form)
     return *this;
 }
 
-Form::Form(const Form &f) : name(f.name), grade_sign(f.grade_sign) ,  grad_exec(f.grad_exec) 
+Form::Form(const Form &f) : name(f.name), grade_sign(f.grade_sign), grad_exec(f.grad_exec)
 {
     signeds = f.signeds;
     *this = f;

@@ -15,7 +15,7 @@ void ShrubberyCreationForm::action() const
     MyFile.close();
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("shrubbery", 145, 135)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("shrubbery", 145, 137)
 {
     this->target = target;
 }

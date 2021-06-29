@@ -4,11 +4,11 @@ Form::Form() : grade_sign(0), grad_exec(0)
 {
 }
 
-int const Form::getExec() const
+int Form::getExec() const
 {
     return (this->grad_exec);
 }
-int const Form::getSign() const
+int Form::getSign() const
 {
     return (this->grade_sign);
 }
