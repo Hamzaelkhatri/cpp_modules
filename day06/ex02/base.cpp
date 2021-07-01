@@ -11,8 +11,8 @@ Base *Base::generate(void)
     int i = rand() % 3;
     for (int j = 0; j < 3; j++)
     {
-        if (i != j)
-            delete tab[j];
+//         if (i != j)
+//             delete tab[j];
     }
     return (tab[i]);
 }
