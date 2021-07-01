@@ -3,5 +3,4 @@
 int main()
 {
     Base base = Base();
-    Base *test;
 }
