@@ -5,7 +5,7 @@ FLAGS = -Wall -Wextra -Werror
 target = main.cpp \
 		Scalar.cpp \
 			
-headers = Bureaucrat.hpp \
+headers = Scalar.hpp \
 
 OBJS = $(target:.cpp=.o)
 
