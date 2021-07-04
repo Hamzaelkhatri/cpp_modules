@@ -5,7 +5,7 @@
 template <typename T>
 void print(T v)
 {
-    std::cout << "--->" << v << std::endl;
+    std::cout << v << std::endl;
 }
 
 template <typename T>
@@ -17,7 +17,6 @@ void iter(T *a, int l, void (*prt)(T))
         prt(a[i]);
         i++;
     }
-    std::cout << "finish iter" << std::endl;
 }
 
 #endif

@@ -4,7 +4,6 @@
 #include <iostream>
 #include <iomanip>
 #include <exception>
-// #include <array>
 
 template <typename T>
 class Array
@@ -24,7 +23,7 @@ public:
 };
 
 template <typename T>
-Array<T>::Array(/* args */)
+Array<T>::Array()
 {
     t = new T[0];
     if (!t)
@@ -42,7 +41,7 @@ Array<T>::Array(unsigned int n) : n(n)
 template <typename T>
 T &Array<T>::operator[](size_t i)
 {
-    if (i >= n || i < 0 || !t || !t[i])
+    if (i >= n || i < 0)
         throw std::exception();
     return t[i];
 }
@@ -67,7 +66,6 @@ Array<T> &Array<T>::operator=(Array const &src)
 template <typename T>
 Array<T>::Array(Array const &src)
 {
-    std::cout << "Copy Constructor \n";
     *this = src;
 }
 
