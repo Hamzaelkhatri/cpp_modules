@@ -9,12 +9,12 @@ void print(T v)
 }
 
 template <typename T>
-void iter(T *a, int l, void (*mapi)(T))
+void iter(T *a, int l, void (*prt)(T))
 {
     int i = 0;
     while (i < l)
     {
-        print(a[i]);
+        prt(a[i]);
         i++;
     }
     std::cout << "finish iter" << std::endl;

@@ -9,5 +9,6 @@ int main()
     iter(i, 5, print);
     iter(c, 4, print);
     iter(s, 4, print);
+
     return (0);
 }
