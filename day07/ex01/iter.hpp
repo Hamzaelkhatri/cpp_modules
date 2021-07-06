@@ -9,7 +9,7 @@ void print(T v)
 }
 
 template <typename T>
-void iter(T *a, int l, void (*prt)(T))
+void iter(T *a, int l, void (prt)(T))
 {
     int i = 0;
     while (i < l)
@@ -18,5 +18,4 @@ void iter(T *a, int l, void (*prt)(T))
         i++;
     }
 }
-
 #endif

@@ -26,16 +26,18 @@ template <typename T>
 Array<T>::Array()
 {
     t = new T[0];
-    if (!t)
-        throw new std::exception();
 }
 
 template <typename T>
 Array<T>::Array(unsigned int n) : n(n)
 {
     t = new T[n];
-    if (!t)
-        throw new std::exception();
+    unsigned int i = 0;
+    while (i < n)
+    {
+        t[n] = 0;
+        i++;
+    }
 }
 
 template <typename T>
